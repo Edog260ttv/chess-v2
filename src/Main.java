@@ -3,6 +3,12 @@ import java.util.Scanner;
 
 public class Main {
 
+
+
+
+
+
+
     public static void emptyScreen() {
         //prints 15 empty lines
         for (int i = 1; i < 15; i++) {
@@ -21,9 +27,13 @@ public class Main {
         }
 
     }
+
+//    public void move(String fromOnBoardX, String toOnBoard) {
+//
+//        if ()
+//
+//    }
     public static void main(String[] args) {
-
-
 
         // important variables
         Scanner scan = new Scanner(System.in);
@@ -31,10 +41,8 @@ public class Main {
         String userInput = "";
         String[] board = new String[64];
 
-        //Chess Pieces
         String[] whitePieces = new String[6];
         String[] blackPieces = new String[6];
-
         //king
         whitePieces[0] = "♔";
         //queen
