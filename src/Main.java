@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Main {
@@ -28,6 +29,32 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         String[] playerNames = new String[2];
         String userInput = "";
+        String[] board = new String[64];
+
+        //Chess Pieces
+        String[] whitePieces = new String[6];
+        String[] blackPieces = new String[6];
+
+        //king
+        whitePieces[0] = "♔";
+        //queen
+        whitePieces[1] = "♕";
+        //rook
+        whitePieces[2] = "♖";
+        //Bishop
+        whitePieces[3] = "♗";
+        //Night
+        whitePieces[4] = "♘";
+        //Pawn
+        whitePieces[5] = "♙";
+
+
+        blackPieces[0] = "♚";
+        blackPieces[1] = "♛";
+        blackPieces[2] = "♜";
+        blackPieces[3] = "♝";
+        blackPieces[4] = "♞";
+        blackPieces[5] = "♟";
 
         // doing the setup for the game
 
@@ -41,6 +68,7 @@ public class Main {
 
         // clear the board and set up the chess set
         emptyScreen();
+        System.out.println(blackPieces[1]);
 
 
 
