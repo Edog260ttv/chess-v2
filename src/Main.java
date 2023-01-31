@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    static movePiece moveClass = new movePiece();
     static int turnCounter = 0;
     static int whosTurn = 1;
     String[][] board = new String[8][8];
@@ -11,6 +12,8 @@ public class Main {
 
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
+
+
 
     public static void printRules() {
 
@@ -40,80 +43,7 @@ public class Main {
 
     }
 
-    public static void movePiece(String from,String to) {
 
-        //king
-        whitePieces[0] = "♔";
-        //queen
-        whitePieces[1] = "♕";
-        //rook
-        whitePieces[2] = "♖";
-        //Bishop
-        whitePieces[3] = "♗";
-        //Night
-        whitePieces[4] = "♘";
-        //Pawn
-        whitePieces[5] = "♙";
-
-
-        blackPieces[0] = "♚";
-        blackPieces[1] = "♛";
-        blackPieces[2] = "♜";
-        blackPieces[3] = "♝";
-        blackPieces[4] = "♞";
-        blackPieces[5] = "♟";
-
-        if (from.substring(0,1).equalsIgnoreCase("a") || from.substring(0,1).equalsIgnoreCase("b") || from.substring(0,1).equalsIgnoreCase("c") || from.substring(0,1).equalsIgnoreCase("d") || from.substring(0,1).equalsIgnoreCase("e") || from.substring(0,1).equalsIgnoreCase("f") || from.substring(0,1).equalsIgnoreCase("g") || from.substring(0,1).equalsIgnoreCase("h")) {
-
-            if (from.substring(0,1).equalsIgnoreCase("a")) {
-
-                int tempX = 1;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("b")) {
-
-                int tempX = 2;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("c")) {
-
-                int tempX = 3;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("d")) {
-
-                int tempX = 4;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("e")) {
-
-                int tempX = 5;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("f")) {
-
-                int tempX = 6;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("g")) {
-
-                int tempX = 7;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            } else if (from.substring(0,1).equalsIgnoreCase("h")) {
-
-                int tempX = 8;
-                int tempY = Integer.parseInt(from.substring(1));
-
-            }
-
-        } else {
-
-            System.out.println("Please enter a valid Coordinate. the first coordinate you entered is invalid.");
-
-        }
-
-    }
 
 
 
@@ -142,6 +72,8 @@ public class Main {
 //
 //    }
     public static void main(String[] args) {
+
+
 
         // important variables
         boolean gameOver = false;
@@ -196,12 +128,14 @@ public class Main {
 
                 int movePieceFrom[][] = new int[1][1];
                 int movePieceTo[][] = new int[1][1];
+//                while () {}
                 System.out.println("Please Enter the coordinate of the piece you want to move. ex: F1");
                 userInput = scan.nextLine();
                 String to = userInput;
                 System.out.println("Please Enter the coordinate where the piece should move. ex: G3");
                 userInput = scan.nextLine();
-                movePiece(to, userInput);
+                String from = userInput;
+                moveClass.movePiece(to, from);
 
 
 
@@ -210,14 +144,21 @@ public class Main {
 
                 printRules();
                 System.out.println("");
-                System.out.println("are you done reading the rules? (y/n)");
+
                 String donewithrules = "";
-                donewithrules = scan.nextLine();
-                if (donewithrules.equalsIgnoreCase("y")) {
 
-                    emptyScreen();
-                    printBoard();
+                while (!donewithrules.equalsIgnoreCase("y")) {
 
+                    System.out.println("are you done reading the rules? (y/n)");
+                    donewithrules = scan.nextLine();
+
+                    if (donewithrules.equalsIgnoreCase("y")) {
+
+                        emptyScreen();
+                        printBoard();
+
+
+                    }
                 }
 
 
