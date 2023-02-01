@@ -1,5 +1,10 @@
 public class print {
 
+    static String[][] board = new String[8][8];
+
+    static String[] whitePieces = new String[6];
+    static String[] blackPieces = new String[6];
+
 
     public static void printRules() {
 
@@ -21,6 +26,50 @@ public class print {
                 "\n" +
                 "The king can move any direction, like the queen, but only 1 square. Protect your king.\n" +
                 "\n");
+
+    }
+    public static void resetBoard() {
+
+        whitePieces[0] = "♔";
+        //queen
+        whitePieces[1] = "♕";
+        //rook
+        whitePieces[2] = "♖";
+        //Bishop
+        whitePieces[3] = "♗";
+        //Night
+        whitePieces[4] = "♘";
+        //Pawn
+        whitePieces[5] = "♙";
+
+
+        blackPieces[0] = "♚";
+        blackPieces[1] = "♛";
+        blackPieces[2] = "♜";
+        blackPieces[3] = "♝";
+        blackPieces[4] = "♞";
+        blackPieces[5] = "♟";
+
+        board[0][0] = whitePieces[2];
+        board[0][1] = whitePieces[4];
+        board[0][2] = whitePieces[3];
+        board[0][3] = whitePieces[0];
+        board[0][4] = whitePieces[1];
+        board[0][5] = whitePieces[3];
+        board[0][6] = whitePieces[4];
+        board[0][7] = whitePieces[2];
+
+        System.out.println("    --------------------------");
+        System.out.println("8   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+        System.out.println("7   |▓▓    ▓▓    ▓▓    ▓▓    |");
+        System.out.println("6   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+        System.out.println("5   |▓▓    ▓▓    ▓▓    ▓▓    |");
+        System.out.println("4   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+        System.out.println("3   |▓▓    ▓▓    ▓▓    ▓▓    |");
+        System.out.println("2   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+        System.out.println("1   | " + board[0][0] + "  " + board[0][1] + "  " + board[0][2] + "   " + board[0][3] + "  " + board[0][4] + "   " + board[0][5] + "  " + board[0][6] + "|");
+        System.out.println("    --------------------------");
+        System.out.println("      A  B  C  D  E  F  G  H");
 
     }
 
