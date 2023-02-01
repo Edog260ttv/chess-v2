@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    static movePiece moveClass = new movePiece();
+    static move move = new move();
+    static print print = new print();
     static int turnCounter = 0;
     static int whosTurn = 1;
     String[][] board = new String[8][8];
@@ -15,41 +16,24 @@ public class Main {
 
 
 
-    public static void printRules() {
 
-        System.out.println("White always goes first. Black goes next, and this repeats for the rest of the game.\n" +
-                "\n" +
-                "To take an enemy piece, you must move a piece onto a square with the enemy piece.\n" +
-                "\n" +
-                "The game is won when one player traps the other player’s king piece, leaving it with no legal moves.\n" +
-                "\n" +
-                "Pawns can move forward one square, except on the first turn, where they can move two forward. Pawns can only attack diagonally forward.\n" +
-                "\n" +
-                "Knights move in an L shape, for example forward 1 tile and down 2 tiles. Knights can move over other pieces.\n" +
-                "\n" +
-                "Bishops can only move diagonally.\n" +
-                "\n" +
-                "Rooks can only move horizontally or vertically.\n" +
-                "\n" +
-                "The queen can move as many squares as she wants diagonally, horizontally, or vertically, making it the most powerful piece on the board.\n" +
-                "\n" +
-                "The king can move any direction, like the queen, but only 1 square. Protect your king.\n" +
-                "\n");
-
-    }
     public static void printBoard() {
 
 
 
     }
 
+    public String[][] getBoard() {
 
+        return board;
+
+    }
 
 
 
     public static void emptyScreen() {
         //prints 15 empty lines
-        for (int i = 1; i < 15; i++) {
+        for (int i = 1; i < 20; i++) {
 
             System.out.println("");
 
@@ -135,14 +119,14 @@ public class Main {
                 System.out.println("Please Enter the coordinate where the piece should move. ex: G3");
                 userInput = scan.nextLine();
                 String from = userInput;
-                moveClass.movePiece(to, from);
+                move.movePiece(to, from);
 
 
 
 
             } else if (userInput.equalsIgnoreCase("rules")) {
 
-                printRules();
+                print.printRules();
                 System.out.println("");
 
                 String donewithrules = "";
