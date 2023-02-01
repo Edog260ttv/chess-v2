@@ -50,26 +50,36 @@ public class print {
         blackPieces[4] = "♞";
         blackPieces[5] = "♟";
 
-        board[0][0] = whitePieces[2];
-        board[0][1] = whitePieces[4];
-        board[0][2] = whitePieces[3];
-        board[0][3] = whitePieces[0];
-        board[0][4] = whitePieces[1];
-        board[0][5] = whitePieces[3];
-        board[0][6] = whitePieces[4];
-        board[0][7] = whitePieces[2];
+        System.out.println ("    --------------------------")
+        System.out.print ("7   |")   //start of black pawn line
+            
+        for (j = 0; j < 8; j++) {
+           board[j][6] = blackPieces[5];
+           System.out.print (board[j][6] + "  ")
+        }
+        
+        for (
+        
+//         board[0][0] = whitePieces[2];
+//         board[0][1] = whitePieces[4];
+//         board[0][2] = whitePieces[3];
+//         board[0][3] = whitePieces[0];
+//         board[0][4] = whitePieces[1];
+//         board[0][5] = whitePieces[3];
+//         board[0][6] = whitePieces[4];
+//         board[0][7] = whitePieces[2];
 
-        System.out.println("    --------------------------");
-        System.out.println("8   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-        System.out.println("7   |▓▓    ▓▓    ▓▓    ▓▓    |");
-        System.out.println("6   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-        System.out.println("5   |▓▓    ▓▓    ▓▓    ▓▓    |");
-        System.out.println("4   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-        System.out.println("3   |▓▓    ▓▓    ▓▓    ▓▓    |");
-        System.out.println("2   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-        System.out.println("1   | " + board[0][0] + "  " + board[0][1] + "  " + board[0][2] + "   " + board[0][3] + "  " + board[0][4] + "   " + board[0][5] + "  " + board[0][6] + "|");
-        System.out.println("    --------------------------");
-        System.out.println("      A  B  C  D  E  F  G  H");
+//         System.out.println("    --------------------------");
+//         System.out.println("8   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+//         System.out.println("7   |▓▓    ▓▓    ▓▓    ▓▓    |");
+//         System.out.println("6   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+//         System.out.println("5   |▓▓    ▓▓    ▓▓    ▓▓    |");
+//         System.out.println("4   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+//         System.out.println("3   |▓▓    ▓▓    ▓▓    ▓▓    |");
+//         System.out.println("2   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
+//         System.out.println("1   | " + board[0][0] + "  " + board[0][1] + "  " + board[0][2] + "   " + board[0][3] + "  " + board[0][4] + "   " + board[0][5] + "  " + board[0][6] + "|");
+//         System.out.println("    --------------------------");
+//         System.out.println("      A  B  C  D  E  F  G  H");
 
     }
 
