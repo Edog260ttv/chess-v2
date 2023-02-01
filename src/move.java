@@ -1,8 +1,14 @@
-public class movePiece {
+public class move {
+
+    static Main Main = new Main();
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
+
+    static String[][] board = new String[8][8];
     public static void movePiece(String from,String to) {
 
+        //Get Board
+        board = Main.getBoard();
         //king
         whitePieces[0] = "♔";
         //queen
@@ -70,6 +76,8 @@ public class movePiece {
             }
 
             System.out.println();
+
+
 
         } else {
 
