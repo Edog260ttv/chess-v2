@@ -15,6 +15,24 @@ public class Main {
     static String[] blackPieces = new String[6];
 
 
+    public static void setWhosTurn(int i) {
+
+        whosTurn = i;
+
+    }
+
+    public static int getWhosTurn() {
+
+        return whosTurn;
+
+    }
+    public static void flipBoard() {
+
+
+
+    }
+
+
 
 
     public static void printBoard() {
@@ -88,30 +106,73 @@ public class Main {
         blackPieces[4] = "♞";
         blackPieces[5] = "♟";
 
-        // doing the setup for the game
+        // first questions at beginning
 
         System.out.println("Welcome To Chess!");
         System.out.println("this is a two player game.");
         System.out.println("what will the name of the first player be?");
-        playerNames[0] = scan.nextLine();
+
+        // getting player names
+        boolean validName = false;
+        while (!validName) {
+            playerNames[0] = scan.nextLine();
+            if (playerNames[0].length() < 1) {
+
+                System.out.println("pleas enter a valid name!");
+
+            } else {
+
+                validName = true;
+
+            }
+
+        }
+
+        validName = false;
+
         System.out.println("what will the name of the second player be?");
-        playerNames[1] = scan.nextLine();
-        System.out.println("you can type \"RULES\" to see the rules as needed!");
+
+        while (!validName) {
+            playerNames[1] = scan.nextLine();
+            if (playerNames[1].length() < 1) {
+
+                System.out.println("pleas enter a longer name!");
+
+            } else {
+
+                validName = true;
+
+            }
+
+        }
+
 
         // clear the board and set up the chess set
         emptyScreen();
-        printBoard();
+
 
 
         //main game loop
         while (!gameOver) {
 
+            printBoard();
+
+            if (whosTurn == 1) {
+
+                System.out.println("it is " + playerNames[0] + "'s turn.");
+
+            } else {
+
+                System.out.println("it is " + playerNames[1] + "'s turn.");
+
+            }
+
             System.out.println("enter a command. (move, rules)");
             userInput = scan.nextLine();
             if (userInput.equalsIgnoreCase("move")) {
 
-                int movePieceFrom[][] = new int[1][1];
-                int movePieceTo[][] = new int[1][1];
+//                int movePieceFrom[][] = new int[1][1];
+//                int movePieceTo[][] = new int[1][1];
 //                while () {}
                 System.out.println("Please Enter the coordinate of the piece you want to move. ex: F1");
                 userInput = scan.nextLine();
@@ -120,7 +181,6 @@ public class Main {
                 userInput = scan.nextLine();
                 String from = userInput;
                 move.movePiece(to, from);
-
 
 
 
