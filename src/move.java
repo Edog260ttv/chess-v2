@@ -6,9 +6,10 @@ public class move {
 
     static String[][] board = new String[8][8];
     static String piece = "";
+    static int whosTurn;
     public static void movePiece(String from,String to) {
 
-
+        whosTurn = Main.getWhosTurn();
         //Get Board
         board = Main.getBoard();
 
@@ -35,7 +36,7 @@ public class move {
 
 
         // is the coordinate they entered valid?
-        if (((from.substring(0,1).equalsIgnoreCase("a") || from.substring(0,1).equalsIgnoreCase("b") || from.substring(0,1).equalsIgnoreCase("c") || from.substring(0,1).equalsIgnoreCase("d") || from.substring(0,1).equalsIgnoreCase("e") || from.substring(0,1).equalsIgnoreCase("f") || from.substring(0,1).equalsIgnoreCase("g") || from.substring(0,1).equalsIgnoreCase("h")) && (to.substring(0,1).equalsIgnoreCase("a") || to.substring(0,1).equalsIgnoreCase("b") || to.substring(0,1).equalsIgnoreCase("c") || to.substring(0,1).equalsIgnoreCase("d") || to.substring(0,1).equalsIgnoreCase("e") || to.substring(0,1).equalsIgnoreCase("f") || to.substring(0,1).equalsIgnoreCase("g") || to.substring(0,1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) ) {
+        if (((from.substring(0,1).equalsIgnoreCase("a") || from.substring(0,1).equalsIgnoreCase("b") || from.substring(0,1).equalsIgnoreCase("c") || from.substring(0,1).equalsIgnoreCase("d") || from.substring(0,1).equalsIgnoreCase("e") || from.substring(0,1).equalsIgnoreCase("f") || from.substring(0,1).equalsIgnoreCase("g") || from.substring(0,1).equalsIgnoreCase("h")) && (to.substring(0,1).equalsIgnoreCase("a") || to.substring(0,1).equalsIgnoreCase("b") || to.substring(0,1).equalsIgnoreCase("c") || to.substring(0,1).equalsIgnoreCase("d") || to.substring(0,1).equalsIgnoreCase("e") || to.substring(0,1).equalsIgnoreCase("f") || to.substring(0,1).equalsIgnoreCase("g") || to.substring(0,1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) && !(to.substring(1).equalsIgnoreCase("9")) && !(from.substring(1).equalsIgnoreCase("9"))) {
             int tempY = 0;
             int tempX = 0;
             if (from.substring(0,1).equalsIgnoreCase("a")) {
@@ -128,7 +129,7 @@ public class move {
 
                 piece = board[tempX][tempY];
                 // coordinate they entered is valid
-                System.out.println("move" + piece +  " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
+                System.out.println("move " + piece +  " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
 
 
 
@@ -143,6 +144,56 @@ public class move {
             System.out.println("Please enter a valid Coordinate. one or more of the coordinates you entered is invalid!");
 
         }
+
+        // checking if player owns the piece they are trying to move
+        boolean ownsPiece = false;
+        if (whosTurn == 1) {
+
+
+            if (piece == null) {
+
+                System.out.println("board has yet to be set up, so this piece is null");
+
+            } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5])) {
+
+                ownsPiece = true;
+
+            } else {
+
+                System.out.println("Please pick another Piece, you don't own this one");
+
+            }
+
+
+            //moving checking if its a valid move]
+            if (ownsPiece) {
+
+
+
+            }
+
+
+
+        }
+        //changing turns and flipping board
+        if (whosTurn == 1) {
+
+            Main.setWhosTurn(2);
+            Main.flipBoard();
+
+        } else {
+
+            Main.setWhosTurn(1);
+            Main.flipBoard();
+
+        }
+    }
+
+    public static boolean isValidMove(String piece) {
+
+
+        System.out.println("the isValidMove Method has yet to be implemented, will return false by default.");
+        return false;
 
     }
 
