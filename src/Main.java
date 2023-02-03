@@ -7,14 +7,18 @@ public class Main {
     static print print = new print();
     static int turnCounter = 0;
     static int whosTurn = 1;
-    String[][] board = new String[8][8];
+    static String[][] board = new String[8][8];
     Scanner scan = new Scanner(System.in);
     String[] playerNames = new String[2];
 
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
 
+    public static void setBoard(int x, int y, String newPiece) {
 
+        board[x][y] = newPiece;
+
+    }
     public static void setWhosTurn(int i) {
 
         whosTurn = i;
