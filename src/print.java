@@ -129,7 +129,7 @@ public class print {
 
     }
         
-        
+        //agcsauyciqusd
         
 //         board[0][0] = whitePieces[2];
 //         board[0][1] = whitePieces[4];
