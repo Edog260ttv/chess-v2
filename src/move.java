@@ -175,7 +175,7 @@ public class move {
 
             }
 
-            turnIsComplete = true;
+//            turnIsComplete = true;
 
         } else {
 

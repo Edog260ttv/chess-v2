@@ -4,6 +4,7 @@ public class print {
 
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
+    static String[] blankSpaces = new String[2];
 
 
     public static void printRules() {
@@ -29,6 +30,29 @@ public class print {
 
     }
     public static void resetBoard() {
+
+        blankSpaces[0] = "▓▓";
+        blankSpaces[1] = "      ";
+        //king
+        whitePieces[0] = "♔";
+        //queen
+        whitePieces[1] = "♕";
+        //rook
+        whitePieces[2] = "♖";
+        //Bishop
+        whitePieces[3] = "♗";
+        //Night
+        whitePieces[4] = "♘";
+        //Pawn
+        whitePieces[5] = "♙";
+
+
+        blackPieces[0] = "♚";
+        blackPieces[1] = "♛";
+        blackPieces[2] = "♜";
+        blackPieces[3] = "♝";
+        blackPieces[4] = "♞";
+        blackPieces[5] = "♟";
 
         board[7][0] = blackPieces[2];
         board[7][1] = blackPieces[4];
@@ -131,4 +155,4 @@ public class print {
     }
 
 
-}
+

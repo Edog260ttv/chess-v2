@@ -159,7 +159,7 @@ public class Main {
         //main game loop
         while (!gameOver) {
 
-            printBoard();
+            print.resetBoard();
 
             if (whosTurn == 1) {
 
