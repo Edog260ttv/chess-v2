@@ -1,5 +1,7 @@
 public class print {
 
+    static Main Main = new Main();
+
     static String[][] board = new String[8][8];
 
     static String[] whitePieces = new String[6];
@@ -62,7 +64,7 @@ public class print {
         board[7][5] = blackPieces[3];
         board[7][6] = blackPieces[4];
         board[7][7] = blackPieces[2];
-        //so you would do setBoard(7, 0, blackPieces[2]);
+        //so you would do Main.setBoard(7, 0, blackPieces[2]);
         //to set the pieces
 
         // public static void setBoard(int x, int y, String newPiece) {
@@ -79,6 +81,7 @@ public class print {
         board[0][5] = whitePieces[3];
         board[0][6] = whitePieces[4];
         board[0][7] = whitePieces[2];
+        board = Main.getBoard();
 
         System.out.println ("    --------------------------");
         System.out.println("8   |  " + board[7][0] + board[7][1] +  board[7][2] + board[7][3] + board[7][4] + board[7][5] + board[7][6] + board[7][7] + " |");   //black pieces
