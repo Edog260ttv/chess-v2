@@ -62,6 +62,14 @@ public class print {
         board[7][5] = blackPieces[3];
         board[7][6] = blackPieces[4];
         board[7][7] = blackPieces[2];
+        //so you would do setBoard(7, 0, blackPieces[2]);
+        //to set the pieces
+
+        // public static void setBoard(int x, int y, String newPiece) {
+        //
+        //        board[x][y] = newPiece;
+        //
+        //    }
 
         board[0][0] = whitePieces[2];
         board[0][1] = whitePieces[4];
