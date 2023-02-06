@@ -59,27 +59,7 @@ public class print {
 
         board = Main.getBoard();
 
-        System.out.println ("    --------------------------");
-        System.out.println("8   |  " + board[7][0] + board[7][1] +  board[7][2] + board[7][3] + board[7][4] + board[7][5] + board[7][6] + board[7][7] + " |");   //black pieces
-        System.out.print ("7   |  ");   //start of black pawn line
-
-        for (int j = 0; j < 8; j++) {
-//            Main.setBoard(j,6, blackPieces[5]);
-//            board[j][6] = blackPieces[5];
-            board = Main.getBoard();
-            System.out.print (board[j][6]);
-        }
-        System.out.println(" |");
-
-        board = Main.getBoard();
-        //prints blank spaces at the beginning of the match
-        System.out.println("6   | " + board[5][0] + board[5][1] +  board[5][2] + board[5][3] + board[5][4] + board[5][5] + board[5][6] + board[5][7]);
-        System.out.println("5   |  " + board[4][0] + board[4][1] +  board[4][2] + board[4][3] + board[4][4] + board[4][5] + board[4][6] + board[4][7]);
-        System.out.println("4   | " + board[3][0] + board[3][1] +  board[3][2] + board[3][3] + board[3][4] + board[3][5] + board[3][6] + board[3][7]);
-        System.out.println("3   |  " + board[2][0] + board[2][1] +  board[2][2] + board[2][3] + board[2][4] + board[2][5] + board[2][6] + board[2][7]);
-
-        System.out.print ("2   |  ");   //start of white pawn line
-
+        a
     }
     public static void resetBoard() {
 
@@ -212,7 +192,7 @@ public class print {
 
     public static void main(String[] args) {
 
-        resetBoard();
+        printBoard();
 
     }
 
