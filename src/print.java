@@ -63,17 +63,25 @@ public class print {
 
         for (int i = 7; i >= 0; i--) {
             board = Main.getBoard();
-                //if (board[i][0].equals(blankSpaces[1]))
-                System.out.print ((i + 1) + "   |  ");
+
+            if (board[i][0].equals(blankSpaces[1])) {
+                System.out.print((i + 1) + "   | ");
+            }
+            else {
+                System.out.print((i + 1) + "   |  ");
+            }
 
             for (int j = 0; j < 8; j++) {
                 board = Main.getBoard();
                 System.out.print (board[i][j]);
             }
 
-            if (!(board[7][i].equals(blankSpaces[0]) || board[7][i].equals(blankSpaces[1]))) {
-                System.out.println ("|");
+            if (board[i][7].equals(blankSpaces[0])) {
+                System.out.println (" |");
                 board = Main.getBoard();
+            }
+            else {
+                System.out.println ("|");
             }
 
 
