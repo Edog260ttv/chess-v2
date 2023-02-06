@@ -46,7 +46,7 @@ public class move {
 
 
         // is the coordinate they entered valid?
-        if (((from.substring(0, 1).equalsIgnoreCase("a") || from.substring(0, 1).equalsIgnoreCase("b") || from.substring(0, 1).equalsIgnoreCase("c") || from.substring(0, 1).equalsIgnoreCase("d") || from.substring(0, 1).equalsIgnoreCase("e") || from.substring(0, 1).equalsIgnoreCase("f") || from.substring(0, 1).equalsIgnoreCase("g") || from.substring(0, 1).equalsIgnoreCase("h")) && (to.substring(0, 1).equalsIgnoreCase("a") || to.substring(0, 1).equalsIgnoreCase("b") || to.substring(0, 1).equalsIgnoreCase("c") || to.substring(0, 1).equalsIgnoreCase("d") || to.substring(0, 1).equalsIgnoreCase("e") || to.substring(0, 1).equalsIgnoreCase("f") || to.substring(0, 1).equalsIgnoreCase("g") || to.substring(0, 1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) && !(to.substring(1).equalsIgnoreCase("9")) && !(from.substring(1).equalsIgnoreCase("9"))) {
+        if (((from.substring(0, 1).equalsIgnoreCase("a") || from.substring(0, 1).equalsIgnoreCase("b") || from.substring(0, 1).equalsIgnoreCase("c") || from.substring(0, 1).equalsIgnoreCase("d") || from.substring(0, 1).equalsIgnoreCase("e") || from.substring(0, 1).equalsIgnoreCase("f") || from.substring(0, 1).equalsIgnoreCase("g") || from.substring(0, 1).equalsIgnoreCase("h")) && (to.substring(0, 1).equalsIgnoreCase("a") || to.substring(0, 1).equalsIgnoreCase("b") || to.substring(0, 1).equalsIgnoreCase("c") || to.substring(0, 1).equalsIgnoreCase("d") || to.substring(0, 1).equalsIgnoreCase("e") || to.substring(0, 1).equalsIgnoreCase("f") || to.substring(0, 1).equalsIgnoreCase("g") || to.substring(0, 1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) && !(to.substring(1).equalsIgnoreCase("9")) && !(from.substring(1).equalsIgnoreCase("9")) && !from.substring(1).equalsIgnoreCase("0") && !to.substring(1).equalsIgnoreCase("0")) {
             int tempY = 0;
             int tempX = 0;
             if (from.substring(0, 1).equalsIgnoreCase("a")) {
@@ -136,6 +136,11 @@ public class move {
 
             }
 
+            tempY2--;
+            tempY--;
+            tempX--;
+            tempX2--;
+
 
             piece = board[tempX][tempY];
             // coordinate they entered is valid
@@ -210,7 +215,7 @@ public class move {
 
         System.out.println("the isValidMove Method has yet to be implemented, will return false by default.");
 
-       // if piece is ___ piece, black or white, then test where it can move legall.
+        // if piece is ___ piece, black or white, then test where it can move legall.
 
         if (turnIsComplete) {
             //changing turns and flipping board
