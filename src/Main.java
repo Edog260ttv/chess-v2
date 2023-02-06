@@ -14,6 +14,8 @@ public class Main {
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
 
+
+
     public static void setBoard(int x, int y, String newPiece) {
 
         board[x][y] = newPiece;
@@ -39,11 +41,7 @@ public class Main {
 
 
 
-    public static void printBoard() {
 
-
-
-    }
 
     public String[][] getBoard() {
 
@@ -55,7 +53,7 @@ public class Main {
 
     public static void emptyScreen() {
         //prints 15 empty lines
-        for (int i = 1; i < 20; i++) {
+        for (int i = 1; i < 30; i++) {
 
             System.out.println("");
 
@@ -140,7 +138,7 @@ public class Main {
             playerNames[1] = scan.nextLine();
             if (playerNames[1].length() < 1) {
 
-                System.out.println("pleas enter a longer name!");
+                System.out.println("please enter a longer name!");
 
             } else {
 
@@ -152,6 +150,8 @@ public class Main {
 
 
         // clear the board and set up the chess set
+
+        print.resetBoard();
         emptyScreen();
 
 
@@ -159,7 +159,7 @@ public class Main {
         //main game loop
         while (!gameOver) {
 
-            print.resetBoard();
+            print.printBoard();
 
             if (whosTurn == 1) {
 
@@ -203,7 +203,7 @@ public class Main {
                     if (donewithrules.equalsIgnoreCase("y")) {
 
                         emptyScreen();
-                        printBoard();
+                        print.printBoard();
 
 
                     }
