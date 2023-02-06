@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 public class print {
 
     static Main Main = new Main();
@@ -65,7 +63,8 @@ public class print {
 
         for (int i = 7; i >= 0; i--) {
             board = Main.getBoard();
-            System.out.print ((i + 1) + "   |  ");
+                //if (board[i][0].equals(blankSpaces[1]))
+                System.out.print ((i + 1) + "   |  ");
 
             for (int j = 0; j < 8; j++) {
                 board = Main.getBoard();
@@ -125,12 +124,7 @@ public class print {
         Main.setBoard(0,5, whitePieces[3]);
         Main.setBoard(0,6, whitePieces[4]);
         Main.setBoard(0,7, whitePieces[2]);
-//        Main.setBoard(1, 6, whitePieces[5]);
-//        Main.setBoard(2, 6, whitePieces[5]);
-//        Main.setBoard(3, 6, whitePieces[5]);
-//        Main.setBoard(4, 6, whitePieces[5]);
-//        Main.setBoard(5, 6, whitePieces[5]);
-//        Main.setBoard(6, 6, whitePieces[5]);
+//
         for (int j = 0; j < 8; j++) {
             Main.setBoard(6, j, whitePieces[5]);
         }
@@ -150,10 +144,9 @@ public class print {
                 if (i % 2 == 0) {
 
                     if (j % 2 == 0) {
-//                        board[i][j] = blankSpaces[0];
+
                         Main.setBoard(i, j, blankSpaces[0]);
                     } else if (!(j % 2 == 0)) {
-//                        board[i][j] = blankSpaces[1];
                         Main.setBoard(i, j, blankSpaces[1]);
                     }
 
@@ -162,10 +155,8 @@ public class print {
                 else {
 
                     if (j % 2 == 0) {
-//                        board[i][j] = blankSpaces[1];
                         Main.setBoard(i, j, blankSpaces[1]);
                     } else if (!(j % 2 == 0)) {
-//                        board[i][j] = blankSpaces[0];
                         Main.setBoard(i, j, blankSpaces[0]);
                     }
 
