@@ -134,11 +134,11 @@ public class print {
         Main.setBoard(0,7, whitePieces[2]);
 //
         for (int j = 0; j < 8; j++) {
-            Main.setBoard(6, j, whitePieces[5]);
+            Main.setBoard(1, j, whitePieces[5]);
         }
 
         for (int j = 0; j < 8; j++) {
-            Main.setBoard(1, j, blackPieces[5]);
+            Main.setBoard(6, j, blackPieces[5]);
         }
 
 
