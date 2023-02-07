@@ -144,7 +144,7 @@ public class move {
 
             piece = board[tempX][tempY];
             // coordinate they entered is valid
-            System.out.println("move " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
+            System.out.println("move   " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
 
 
             // checking if player owns the piece they are trying to move

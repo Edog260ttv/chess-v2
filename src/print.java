@@ -1,3 +1,5 @@
+import javax.crypto.spec.PSource;
+
 public class print {
 
     static Main Main = new Main();
@@ -7,6 +9,8 @@ public class print {
     static String[] whitePieces = new String[6];
     static String[] blackPieces = new String[6];
     static String[] blankSpaces = new String[2];
+
+    static int turnCount = 0;
 
 
     public static void printRules() {
@@ -149,34 +153,37 @@ public class print {
 
         board = Main.getBoard();
 
-        System.out.println ("    --------------------------");
 
-        for (int i = 7; i >= 0; i--) {
-            board = Main.getBoard();
 
-            if (board[i][0].equals(blankSpaces[1])) {
-                System.out.print((i + 1) + "   | ");
-            }
-            else {
-                System.out.print((i + 1) + "   |  ");
-            }
+            System.out.println ("    --------------------------");
 
-            for (int j = 0; j < 8; j++) {
+            for (int i = 7; i >= 0; i--) {
                 board = Main.getBoard();
-                System.out.print (board[i][j]);
+
+                if (board[i][0].equals(blankSpaces[1])) {
+                    System.out.print((i + 1) + "   | ");
+                }
+                else {
+                    System.out.print((i + 1) + "   |  ");
+                }
+
+                for (int j = 0; j < 8; j++) {
+                    board = Main.getBoard();
+                    System.out.print (board[i][j]);
+                }
+
+                if (board[i][7].equals(blankSpaces[0])) {
+                    System.out.println (" |");
+                    board = Main.getBoard();
+                }
+                else {
+                    System.out.println ("|");
+                }
+
             }
 
-            if (board[i][7].equals(blankSpaces[0])) {
-                System.out.println (" |");
-                board = Main.getBoard();
-            }
-            else {
-                System.out.println ("|");
-            }
-
-        }
-        System.out.println ("    --------------------------");
-        System.out.println("       A  B  C  D  E  F  G  H");
+            System.out.println ("    --------------------------");
+            System.out.println("       A  B  C  D  E  F  G  H");
 
     }
 
@@ -207,42 +214,87 @@ public class print {
 
         board = Main.getBoard();
 
-        System.out.println ("    --------------------------");
+        if (turnCount % 2 == 0) {
 
-        for (int i = 0; i <= 7; i++) {
-            board = Main.getBoard();
+            System.out.println("    --------------------------");
 
-            if (board[i][0].equals(blankSpaces[1])) {
-                System.out.print((i + 1) + "   | ");
-            }
-            else {
-                System.out.print((i + 1) + "   |  ");
-            }
-
-            for (int j = 7; j > 0; j--) {
+            for (int i = 0; i <= 7; i++) {
                 board = Main.getBoard();
-                System.out.print (board[i][j]);
+
+                if (board[i][0].equals(blankSpaces[0])) {
+                    System.out.print((i + 1) + "   | ");
+                } else {
+                    System.out.print((i + 1) + "   |  ");
+                }
+
+                for (int j = 7; j >= 0; j--) {
+                    board = Main.getBoard();
+                    System.out.print(board[i][j]);
+                }
+
+                if (board[i][7].equals(blankSpaces[1])) {
+                    System.out.println(" |");
+                    board = Main.getBoard();
+                } else {
+                    System.out.println("|");
+                }
+
             }
 
-            if (board[i][7].equals(blankSpaces[0])) {
-                System.out.println (" |");
-                board = Main.getBoard();
-            }
-            else {
-                System.out.println ("|");
-            }
+            System.out.println("    --------------------------");
+            System.out.println("       A  B  C  D  E  F  G  H");
 
         }
+
+        else {
+
+            System.out.println ("    --------------------------");
+
+            for (int i = 7; i >= 0; i--) {
+                board = Main.getBoard();
+
+                if (board[i][0].equals(blankSpaces[1])) {
+                    System.out.print((i + 1) + "   | ");
+                }
+                else {
+                    System.out.print((i + 1) + "   |  ");
+                }
+
+                for (int j = 0; j < 8; j++) {
+                    board = Main.getBoard();
+                    System.out.print (board[i][j]);
+                }
+
+                if (board[i][7].equals(blankSpaces[0])) {
+                    System.out.println (" |");
+                    board = Main.getBoard();
+                }
+                else {
+                    System.out.println ("|");
+                }
+
+            }
+
+            System.out.println ("    --------------------------");
+            System.out.println("       A  B  C  D  E  F  G  H");
+
+        }
+
+        turnCount++;
 
     }
 
     public static void main(String[] args) {
 
+        //reset the board to its original state
         resetBoard();
+        //print the current board
         printBoard();
-
         System.out.println();
 
+        //invert the current board (twice)
+        flipBoard();
+        System.out.println();
         flipBoard();
 
     }
