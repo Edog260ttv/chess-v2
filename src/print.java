@@ -32,63 +32,6 @@ public class print {
 
     }
 
-    public static void printBoard() {
-
-        blankSpaces[0] = "▓▓";
-        blankSpaces[1] = "      ";
-        //king
-        whitePieces[0] = "♔  ";
-        //queen
-        whitePieces[1] = "♕  ";
-        //rook
-        whitePieces[2] = "♖  ";
-        //Bishop
-        whitePieces[3] = "♗  ";
-        //Night
-        whitePieces[4] = "♘  ";
-        //Pawn
-        whitePieces[5] = "♙  ";
-
-
-        blackPieces[0] = "♚  ";
-        blackPieces[1] = "♛  ";
-        blackPieces[2] = "♜  ";
-        blackPieces[3] = "♝  ";
-        blackPieces[4] = "♞  ";
-        blackPieces[5] = "♟  ";
-
-        board = Main.getBoard();
-
-        System.out.println ("    --------------------------");
-
-        for (int i = 7; i >= 0; i--) {
-            board = Main.getBoard();
-
-            if (board[i][0].equals(blankSpaces[1])) {
-                System.out.print((i + 1) + "   | ");
-            }
-            else {
-                System.out.print((i + 1) + "   |  ");
-            }
-
-            for (int j = 0; j < 8; j++) {
-                board = Main.getBoard();
-                System.out.print (board[i][j]);
-            }
-
-            if (board[i][7].equals(blankSpaces[0])) {
-                System.out.println (" |");
-                board = Main.getBoard();
-            }
-            else {
-                System.out.println ("|");
-            }
-
-        }
-        System.out.println ("    --------------------------");
-
-    }
-
     public static void resetBoard() {
 
         blankSpaces[0] = "▓▓";
@@ -179,34 +122,130 @@ public class print {
 
     }
 
+    public static void printBoard() {
+
+        blankSpaces[0] = "▓▓";
+        blankSpaces[1] = "      ";
+        //king
+        whitePieces[0] = "♔  ";
+        //queen
+        whitePieces[1] = "♕  ";
+        //rook
+        whitePieces[2] = "♖  ";
+        //Bishop
+        whitePieces[3] = "♗  ";
+        //Night
+        whitePieces[4] = "♘  ";
+        //Pawn
+        whitePieces[5] = "♙  ";
+
+
+        blackPieces[0] = "♚  ";
+        blackPieces[1] = "♛  ";
+        blackPieces[2] = "♜  ";
+        blackPieces[3] = "♝  ";
+        blackPieces[4] = "♞  ";
+        blackPieces[5] = "♟  ";
+
+        board = Main.getBoard();
+
+        System.out.println ("    --------------------------");
+
+        for (int i = 7; i >= 0; i--) {
+            board = Main.getBoard();
+
+            if (board[i][0].equals(blankSpaces[1])) {
+                System.out.print((i + 1) + "   | ");
+            }
+            else {
+                System.out.print((i + 1) + "   |  ");
+            }
+
+            for (int j = 0; j < 8; j++) {
+                board = Main.getBoard();
+                System.out.print (board[i][j]);
+            }
+
+            if (board[i][7].equals(blankSpaces[0])) {
+                System.out.println (" |");
+                board = Main.getBoard();
+            }
+            else {
+                System.out.println ("|");
+            }
+
+        }
+        System.out.println ("    --------------------------");
+        System.out.println("       A  B  C  D  E  F  G  H");
+
+    }
+
+    public static void flipBoard() {
+
+        blankSpaces[0] = "▓▓";
+        blankSpaces[1] = "      ";
+        //king
+        whitePieces[0] = "♔  ";
+        //queen
+        whitePieces[1] = "♕  ";
+        //rook
+        whitePieces[2] = "♖  ";
+        //Bishop
+        whitePieces[3] = "♗  ";
+        //Night
+        whitePieces[4] = "♘  ";
+        //Pawn
+        whitePieces[5] = "♙  ";
+
+
+        blackPieces[0] = "♚  ";
+        blackPieces[1] = "♛  ";
+        blackPieces[2] = "♜  ";
+        blackPieces[3] = "♝  ";
+        blackPieces[4] = "♞  ";
+        blackPieces[5] = "♟  ";
+
+        board = Main.getBoard();
+
+        System.out.println ("    --------------------------");
+
+        for (int i = 0; i <= 7; i++) {
+            board = Main.getBoard();
+
+            if (board[i][0].equals(blankSpaces[1])) {
+                System.out.print((i + 1) + "   | ");
+            }
+            else {
+                System.out.print((i + 1) + "   |  ");
+            }
+
+            for (int j = 7; j > 0; j--) {
+                board = Main.getBoard();
+                System.out.print (board[i][j]);
+            }
+
+            if (board[i][7].equals(blankSpaces[0])) {
+                System.out.println (" |");
+                board = Main.getBoard();
+            }
+            else {
+                System.out.println ("|");
+            }
+
+        }
+
+    }
+
     public static void main(String[] args) {
 
         resetBoard();
         printBoard();
 
+        System.out.println();
+
+        flipBoard();
+
     }
-
-
-//         board[0][0] = whitePieces[2];
-//         board[0][1] = whitePieces[4];
-//         board[0][2] = whitePieces[3];
-//         board[0][3] = whitePieces[0];
-//         board[0][4] = whitePieces[1];
-//         board[0][5] = whitePieces[3];
-//         board[0][6] = whitePieces[4];
-//         board[0][7] = whitePieces[2];
-
-//         System.out.println("    --------------------------");
-//         System.out.println("8   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-//         System.out.println("7   |▓▓    ▓▓    ▓▓    ▓▓    |");
-//         System.out.println("6   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-//         System.out.println("5   |▓▓    ▓▓    ▓▓    ▓▓    |");
-//         System.out.println("4   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-//         System.out.println("3   |▓▓    ▓▓    ▓▓    ▓▓    |");
-//         System.out.println("2   |   ▓▓    ▓▓    ▓▓    ▓▓ |");
-//         System.out.println("1   | " + board[0][0] + "  " + board[0][1] + "  " + board[0][2] + "   " + board[0][3] + "  " + board[0][4] + "   " + board[0][5] + "  " + board[0][6] + "|");
-//         System.out.println("    --------------------------");
-//         System.out.println("      A  B  C  D  E  F  G  H");
 
 }
 
