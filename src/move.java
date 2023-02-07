@@ -24,25 +24,25 @@ public class move {
         blankSpaces[0] = "▓▓";
         blankSpaces[1] = "      ";
         //king
-        whitePieces[0] = "♔";
+        whitePieces[0] = "♔  ";
         //queen
-        whitePieces[1] = "♕";
+        whitePieces[1] = "♕  ";
         //rook
-        whitePieces[2] = "♖";
+        whitePieces[2] = "♖  ";
         //Bishop
-        whitePieces[3] = "♗";
+        whitePieces[3] = "♗  ";
         //Night
-        whitePieces[4] = "♘";
+        whitePieces[4] = "♘  ";
         //Pawn
-        whitePieces[5] = "♙";
+        whitePieces[5] = "♙  ";
 
 
-        blackPieces[0] = "♚";
-        blackPieces[1] = "♛";
-        blackPieces[2] = "♜";
-        blackPieces[3] = "♝";
-        blackPieces[4] = "♞";
-        blackPieces[5] = "♟";
+        blackPieces[0] = "♚  ";
+        blackPieces[1] = "♛  ";
+        blackPieces[2] = "♜  ";
+        blackPieces[3] = "♝  ";
+        blackPieces[4] = "♞  ";
+        blackPieces[5] = "♟  ";
 
 
         // is the coordinate they entered valid?
@@ -51,43 +51,43 @@ public class move {
             int tempX = 0;
             if (from.substring(0, 1).equalsIgnoreCase("a")) {
 
-                tempX = 1;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 1;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("b")) {
 
-                tempX = 2;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 2;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("c")) {
 
-                tempX = 3;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 3;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("d")) {
 
-                tempX = 4;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 4;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("e")) {
 
-                tempX = 5;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 5;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("f")) {
 
-                tempX = 6;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 6;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("g")) {
 
-                tempX = 7;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 7;
+                tempX = Integer.parseInt(from.substring(1));
 
             } else if (from.substring(0, 1).equalsIgnoreCase("h")) {
 
-                tempX = 8;
-                tempY = Integer.parseInt(from.substring(1));
+                tempY = 8;
+                tempX = Integer.parseInt(from.substring(1));
 
             }
 
@@ -96,43 +96,43 @@ public class move {
             int tempX2 = 0;
             if (to.substring(0, 1).equalsIgnoreCase("a")) {
 
-                tempX2 = 1;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 1;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("b")) {
 
-                tempX2 = 2;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 2;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("c")) {
 
-                tempX2 = 3;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 3;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("d")) {
 
-                tempX2 = 4;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 4;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("e")) {
 
-                tempX2 = 5;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 5;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("f")) {
 
-                tempX2 = 6;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 6;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("g")) {
 
-                tempX2 = 7;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 7;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             } else if (to.substring(0, 1).equalsIgnoreCase("h")) {
 
-                tempX2 = 8;
-                tempY2 = Integer.parseInt(to.substring(1));
+                tempY2 = 8;
+                tempX2 = Integer.parseInt(to.substring(1));
 
             }
 
@@ -155,7 +155,7 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5])) {
+                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5]) || piece.equalsIgnoreCase(whitePieces[6]) || piece.equalsIgnoreCase(whitePieces[7])) {
 
                     ownsPiece = true;
 
@@ -167,6 +167,9 @@ public class move {
 
             }
 
+            System.out.println("you own this piece");
+
+
             //moving checking if it's a valid move
             if (ownsPiece) {
 
@@ -174,7 +177,10 @@ public class move {
 
                 if (moveIsValid) {
 
-                    Main.setBoard(tempX, tempY, "set up spaces in move.java");
+                    Main.setBoard(tempX2, tempY2, piece);
+                    Main.setBoard(tempX, tempY, blankSpaces[1]);
+                    System.out.println("to " + tempX2 + "," + tempY2 + " piece " + piece);
+                    System.out.println("from " + tempX + "," + tempY);
 
                 }
 
@@ -213,6 +219,8 @@ public class move {
     public static boolean isValidMove(String piece, int x1, int y1, int x2, int y2) {
 
 
+
+
         System.out.println("the isValidMove Method has yet to be implemented, will return false by default.");
 
         // if piece is ___ piece, black or white, then test where it can move legall.
@@ -221,16 +229,12 @@ public class move {
             //changing turns and flipping board
             if (whosTurn == 1) {
 
-                // King
+                // King`
                 if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(blackPieces[0])) {
 
                     if ((x2 == x1 + 1 || x2 == x1 - 1) || (y2 == y1 + 1 || y2 == y1 - 1)) {
                         // finish the IFS!
-                        if (board[x2][y2].equalsIgnoreCase(blankSpaces[0]) || board[x2][y2].equalsIgnoreCase(blankSpaces[1])) {
-
-
-
-                        }
+                        return true;
 
                     } else {
 
@@ -240,17 +244,17 @@ public class move {
 
                 }
 
+
+
             } else {
 
-
+                System.out.println("second players turn");
 
             }
         }
 
 
-
-
-
+        System.out.println(" returned false");
         return false;
 
     }
