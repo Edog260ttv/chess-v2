@@ -182,7 +182,7 @@ public class move {
                     System.out.println("Please pick another Piece, you don't own this one");
 
                 }
-                
+
             }
 
 
@@ -227,12 +227,12 @@ public class move {
             if (whosTurn == 1) {
 
                 Main.setWhosTurn(2);
-                Main.flipBoard();
+                print.flipBoard();
 
             } else {
 
                 Main.setWhosTurn(1);
-                Main.flipBoard();
+                print.flipBoard();
 
             }
 
@@ -269,13 +269,13 @@ public class move {
 
         if (piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(blackPieces[1])) {
 
-            System.out.println("the piece is a queen");            
-            
+            System.out.println("the piece is a queen");
+
         } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(blackPieces[0])) {
 
 
             System.out.println("this piece is a king");
-            
+
         } else if (piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(blackPieces[2])) {
 
 
@@ -291,6 +291,18 @@ public class move {
 
             System.out.println("this piece is a Knight");
 
+            if ((y2 == (y1 + 2) && x2 == (x1 + 1)) || (y2 == (y1 + 1) && x2 == (x1 + 2)) || (y2 == (y1 - 1) && x2 == (x1 + 2)) || (y2 == (y1 - 2) && x2 == (x1 + 1)) || (y2 == (y1 - 2) && x2 == (x1 - 1)) || (y2 == (y1 - 1) && x2 == (x1 - 2)) || (y2 == (y1 + 1) && x2 == (x1 - 2)) || (y2 == (y1 + 2) && x2 == (x1 - 1))) {
+
+                if (whosTurn == 0 && (board[x2][y2].equals(whitePieces[0])) && (board[x2][y2].equals(whitePieces[1])) && (board[x2][y2].equals(whitePieces[2])) && (board[x2][y2].equals(whitePieces[3])) && (board[x2][y2].equals(whitePieces[4]) || (board[x2][y2].equals(whitePieces[5])))) {
+                    return true;
+                }
+                else {
+                    //sodnkjasnfkjasnfkjasbnfkjasnfkjasnf
+                }
+                
+                
+            }
+
         } else if (piece.equalsIgnoreCase(whitePieces[5]) || piece.equalsIgnoreCase(blackPieces[5])) {
 
 
@@ -298,8 +310,8 @@ public class move {
 
         }
 
-        System.out.println("returned true by default");
-        return true;
+        System.out.println("returned false by default");
+        return false;
 
     }
 
