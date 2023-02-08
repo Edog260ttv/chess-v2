@@ -155,35 +155,35 @@ public class print {
 
 
 
-            System.out.println ("    --------------------------");
+        System.out.println ("    --------------------------");
 
-            for (int i = 7; i >= 0; i--) {
-                board = Main.getBoard();
+        for (int i = 7; i >= 0; i--) {
+            board = Main.getBoard();
 
-                if (board[i][0].equals(blankSpaces[1])) {
-                    System.out.print((i + 1) + "   | ");
-                }
-                else {
-                    System.out.print((i + 1) + "   |  ");
-                }
-
-                for (int j = 0; j < 8; j++) {
-                    board = Main.getBoard();
-                    System.out.print (board[i][j]);
-                }
-
-                if (board[i][7].equals(blankSpaces[0])) {
-                    System.out.println (" |");
-                    board = Main.getBoard();
-                }
-                else {
-                    System.out.println ("|");
-                }
-
+            if (board[i][0].equals(blankSpaces[1])) {
+                System.out.print((i + 1) + "   | ");
+            }
+            else {
+                System.out.print((i + 1) + "   |  ");
             }
 
-            System.out.println ("    --------------------------");
-            System.out.println("       A  B  C  D  E  F  G  H");
+            for (int j = 0; j < 8; j++) {
+                board = Main.getBoard();
+                System.out.print (board[i][j]);
+            }
+
+            if (board[i][7].equals(blankSpaces[0])) {
+                System.out.println (" |");
+                board = Main.getBoard();
+            }
+            else {
+                System.out.println ("|");
+            }
+
+        }
+
+        System.out.println ("    --------------------------");
+        System.out.println("       A  B  C  D  E  F  G  H");
 
     }
 
@@ -214,73 +214,15 @@ public class print {
 
         board = Main.getBoard();
 
-        if (turnCount % 2 == 0) {
+        for (int i = 7; i >= 0; i--) {
 
-            System.out.println("    --------------------------");
+            for (int j = 7; j < 0; j++) {
 
-            for (int i = 0; i <= 7; i++) {
-                board = Main.getBoard();
-
-                if (board[i][0].equals(blankSpaces[0])) {
-                    System.out.print((i + 1) + "   | ");
-                } else {
-                    System.out.print((i + 1) + "   |  ");
-                }
-
-                for (int j = 7; j >= 0; j--) {
-                    board = Main.getBoard();
-                    System.out.print(board[i][j]);
-                }
-
-                if (board[i][7].equals(blankSpaces[1])) {
-                    System.out.println(" |");
-                    board = Main.getBoard();
-                } else {
-                    System.out.println("|");
-                }
+                Main.setBoard(j,i, board[i][j]);
 
             }
 
-            System.out.println("    --------------------------");
-            System.out.println("       A  B  C  D  E  F  G  H");
-
         }
-
-        else {
-
-            System.out.println ("    --------------------------");
-
-            for (int i = 7; i >= 0; i--) {
-                board = Main.getBoard();
-
-                if (board[i][0].equals(blankSpaces[1])) {
-                    System.out.print((i + 1) + "   | ");
-                }
-                else {
-                    System.out.print((i + 1) + "   |  ");
-                }
-
-                for (int j = 0; j < 8; j++) {
-                    board = Main.getBoard();
-                    System.out.print (board[i][j]);
-                }
-
-                if (board[i][7].equals(blankSpaces[0])) {
-                    System.out.println (" |");
-                    board = Main.getBoard();
-                }
-                else {
-                    System.out.println ("|");
-                }
-
-            }
-
-            System.out.println ("    --------------------------");
-            System.out.println("       A  B  C  D  E  F  G  H");
-
-        }
-
-        turnCount++;
 
     }
 
@@ -292,12 +234,80 @@ public class print {
         printBoard();
         System.out.println();
 
-        //invert the current board (twice)
+        //invert the current board
         flipBoard();
-        System.out.println();
-        flipBoard();
+        printBoard();
 
     }
+
+//    if (turnCount % 2 == 1) {
+//
+//        System.out.println("    --------------------------");
+//
+//        for (int i = 0; i <= 7; i++) {
+//            board = Main.getBoard();
+//
+//            if (board[i][0].equals(blankSpaces[0])) {
+//                System.out.print((i + 1) + "   | ");
+//            } else {
+//                System.out.print((i + 1) + "   |  ");
+//            }
+//
+//            for (int j = 7; j >= 0; j--) {
+//                board = Main.getBoard();
+//                System.out.print(board[i][j]);
+//            }
+//
+//            if (board[i][7].equals(blankSpaces[1])) {
+//                System.out.println(" |");
+//                board = Main.getBoard();
+//            } else {
+//                System.out.println("|");
+//            }
+//
+//        }
+//
+//        System.out.println("    --------------------------");
+//        System.out.println("       A  B  C  D  E  F  G  H");
+//
+//    }
+//
+//        else {
+//
+//        System.out.println ("    --------------------------");
+//
+//        for (int i = 7; i >= 0; i--) {
+//            board = Main.getBoard();
+//
+//            if (board[i][0].equals(blankSpaces[1])) {
+//                System.out.print((i + 1) + "   | ");
+//            }
+//            else {
+//                System.out.print((i + 1) + "   |  ");
+//            }
+//
+//            for (int j = 0; j < 8; j++) {
+//                board = Main.getBoard();
+//                System.out.print (board[i][j]);
+//            }
+//
+//            if (board[i][7].equals(blankSpaces[0])) {
+//                System.out.println (" |");
+//                board = Main.getBoard();
+//            }
+//            else {
+//                System.out.println ("|");
+//            }
+//
+//        }
+//
+//        System.out.println ("    --------------------------");
+//        System.out.println("       A  B  C  D  E  F  G  H");
+//
+//    }
+//
+//    turnCount++;
+
 
 }
 
