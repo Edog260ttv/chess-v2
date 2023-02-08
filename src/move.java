@@ -49,6 +49,8 @@ public class move {
         if (((from.substring(0, 1).equalsIgnoreCase("a") || from.substring(0, 1).equalsIgnoreCase("b") || from.substring(0, 1).equalsIgnoreCase("c") || from.substring(0, 1).equalsIgnoreCase("d") || from.substring(0, 1).equalsIgnoreCase("e") || from.substring(0, 1).equalsIgnoreCase("f") || from.substring(0, 1).equalsIgnoreCase("g") || from.substring(0, 1).equalsIgnoreCase("h")) && (to.substring(0, 1).equalsIgnoreCase("a") || to.substring(0, 1).equalsIgnoreCase("b") || to.substring(0, 1).equalsIgnoreCase("c") || to.substring(0, 1).equalsIgnoreCase("d") || to.substring(0, 1).equalsIgnoreCase("e") || to.substring(0, 1).equalsIgnoreCase("f") || to.substring(0, 1).equalsIgnoreCase("g") || to.substring(0, 1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) && !(to.substring(1).equalsIgnoreCase("9")) && !(from.substring(1).equalsIgnoreCase("9")) && !from.substring(1).equalsIgnoreCase("0") && !to.substring(1).equalsIgnoreCase("0")) {
             int tempY = 0;
             int tempX = 0;
+
+            // converting from to two ints as coordinates
             if (from.substring(0, 1).equalsIgnoreCase("a")) {
 
                 tempY = 1;
@@ -141,10 +143,10 @@ public class move {
             tempX--;
             tempX2--;
 
-
+            board = Main.getBoard();
             piece = board[tempX][tempY];
             // coordinate they entered is valid
-            System.out.println("move   " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
+            System.out.println("move " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
 
 
             // checking if player owns the piece they are trying to move
@@ -155,7 +157,7 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5]) || piece.equalsIgnoreCase(whitePieces[6]) || piece.equalsIgnoreCase(whitePieces[7])) {
+                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
 
                     ownsPiece = true;
 
@@ -165,9 +167,24 @@ public class move {
 
                 }
 
+            } else {
+
+                if (piece == null) {
+
+                    System.out.println("board has yet to be set up, so this piece is null");
+
+                } else if (piece.equalsIgnoreCase(blackPieces[0]) || piece.equalsIgnoreCase(blackPieces[1]) || piece.equalsIgnoreCase(blackPieces[2]) || piece.equalsIgnoreCase(blackPieces[3]) || piece.equalsIgnoreCase(blackPieces[4]) || piece.equalsIgnoreCase(blackPieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
+
+                    ownsPiece = true;
+
+                } else {
+
+                    System.out.println("Please pick another Piece, you don't own this one");
+
+                }
+                
             }
 
-            System.out.println("you own this piece");
 
 
             //moving checking if it's a valid move
@@ -176,11 +193,17 @@ public class move {
                 moveIsValid =  isValidMove(piece, tempX, tempY, tempX2, tempY2);
 
                 if (moveIsValid) {
+                    System.out.println("move is valid");
 
                     Main.setBoard(tempX2, tempY2, piece);
                     Main.setBoard(tempX, tempY, blankSpaces[1]);
                     System.out.println("to " + tempX2 + "," + tempY2 + " piece " + piece);
                     System.out.println("from " + tempX + "," + tempY);
+                    turnIsComplete = true;
+
+                } else {
+
+                    System.out.println("Move is  invalid");
 
                 }
 
@@ -212,50 +235,71 @@ public class move {
                 Main.flipBoard();
 
             }
+
+            turnIsComplete = false;
+
         }
     }
 
 
     public static boolean isValidMove(String piece, int x1, int y1, int x2, int y2) {
 
+        blankSpaces[0] = "▓▓";
+        blankSpaces[1] = "      ";
+        //king
+        whitePieces[0] = "♔  ";
+        //queen
+        whitePieces[1] = "♕  ";
+        //rook
+        whitePieces[2] = "♖  ";
+        //Bishop
+        whitePieces[3] = "♗  ";
+        //Night
+        whitePieces[4] = "♘  ";
+        //Pawn
+        whitePieces[5] = "♙  ";
 
 
+        blackPieces[0] = "♚  ";
+        blackPieces[1] = "♛  ";
+        blackPieces[2] = "♜  ";
+        blackPieces[3] = "♝  ";
+        blackPieces[4] = "♞  ";
+        blackPieces[5] = "♟  ";
 
-        System.out.println("the isValidMove Method has yet to be implemented, will return false by default.");
+        if (piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(blackPieces[1])) {
 
-        // if piece is ___ piece, black or white, then test where it can move legall.
-
-        if (turnIsComplete) {
-            //changing turns and flipping board
-            if (whosTurn == 1) {
-
-                // King`
-                if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(blackPieces[0])) {
-
-                    if ((x2 == x1 + 1 || x2 == x1 - 1) || (y2 == y1 + 1 || y2 == y1 - 1)) {
-                        // finish the IFS!
-                        return true;
-
-                    } else {
-
-                        System.out.println("your King Cannot Move there!");
-
-                    }
-
-                }
+            System.out.println("the piece is a queen");            
+            
+        } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(blackPieces[0])) {
 
 
+            System.out.println("this piece is a king");
+            
+        } else if (piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(blackPieces[2])) {
 
-            } else {
 
-                System.out.println("second players turn");
+            System.out.println("this piece is a rook");
 
-            }
+        } else if (piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(blackPieces[3])) {
+
+
+            System.out.println("this piece is a bishop");
+
+        } else if (piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(blackPieces[4])) {
+
+
+            System.out.println("this piece is a Knight");
+
+        } else if (piece.equalsIgnoreCase(whitePieces[5]) || piece.equalsIgnoreCase(blackPieces[5])) {
+
+
+            System.out.println("this piece is a pawn");
+
         }
 
-
-        System.out.println(" returned false");
-        return false;
+        System.out.println("returned true by default");
+        return true;
 
     }
 
