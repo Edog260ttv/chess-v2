@@ -174,7 +174,7 @@ public class Main {
 
             System.out.println("enter a command. (move, rules)");
             userInput = scan.nextLine();
-            if (userInput.equalsIgnoreCase("move")) {
+            if (userInput.equalsIgnoreCase("move") || userInput.equalsIgnoreCase("m")) {
 
 //                int movePieceFrom[][] = new int[1][1];
 //                int movePieceTo[][] = new int[1][1];

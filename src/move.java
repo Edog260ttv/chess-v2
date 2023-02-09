@@ -138,15 +138,15 @@ public class move {
 
             }
 
-            tempY2--;
-            tempY--;
             tempX--;
+            tempY--;
             tempX2--;
+            tempY2--;
 
             board = Main.getBoard();
             piece = board[tempX][tempY];
             // coordinate they entered is valid
-            System.out.println("move " + piece + " from " + (tempY+1) + "," + (tempX+1) + " to " + (tempY2+1) + "," + (tempX2+1));
+            System.out.println("move   " + piece + " from " + (tempY+1) + "," + (tempX+1) + " to " + (tempY2+1) + "," + (tempX2+1));
 
 
             // checking if player owns the piece they are trying to move
@@ -157,9 +157,13 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
+                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5])) {
 
                     ownsPiece = true;
+
+                } else if (piece.equalsIgnoreCase(blankSpaces[0]) || piece.equalsIgnoreCase(blackPieces[1])) {
+
+                    System.out.println("There is no piece on this square");
 
                 } else {
 
@@ -173,7 +177,7 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if (piece.equalsIgnoreCase(blackPieces[0]) || piece.equalsIgnoreCase(blackPieces[1]) || piece.equalsIgnoreCase(blackPieces[2]) || piece.equalsIgnoreCase(blackPieces[3]) || piece.equalsIgnoreCase(blackPieces[4]) || piece.equalsIgnoreCase(blackPieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
+                } else if ((piece.equalsIgnoreCase(blackPieces[0]) || piece.equalsIgnoreCase(blackPieces[1]) || piece.equalsIgnoreCase(blackPieces[2]) || piece.equalsIgnoreCase(blackPieces[3]) || piece.equalsIgnoreCase(blackPieces[4]) || piece.equalsIgnoreCase(blackPieces[5])) && (!piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0]))) {
 
                     ownsPiece = true;
 
