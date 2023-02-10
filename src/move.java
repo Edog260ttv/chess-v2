@@ -138,15 +138,15 @@ public class move {
 
             }
 
-            tempX--;
-            tempY--;
-            tempX2--;
             tempY2--;
+            tempY--;
+            tempX--;
+            tempX2--;
 
             board = Main.getBoard();
             piece = board[tempX][tempY];
             // coordinate they entered is valid
-            System.out.println("move   " + piece + " from " + (tempY+1) + "," + (tempX+1) + " to " + (tempY2+1) + "," + (tempX2+1));
+            System.out.println("move " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
 
 
             // checking if player owns the piece they are trying to move
@@ -157,13 +157,9 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5])) {
+                } else if (piece.equalsIgnoreCase(whitePieces[0]) || piece.equalsIgnoreCase(whitePieces[1]) || piece.equalsIgnoreCase(whitePieces[2]) || piece.equalsIgnoreCase(whitePieces[3]) || piece.equalsIgnoreCase(whitePieces[4]) || piece.equalsIgnoreCase(whitePieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
 
                     ownsPiece = true;
-
-                } else if (piece.equalsIgnoreCase(blankSpaces[0]) || piece.equalsIgnoreCase(blackPieces[1])) {
-
-                    System.out.println("There is no piece on this square");
 
                 } else {
 
@@ -177,7 +173,7 @@ public class move {
 
                     System.out.println("board has yet to be set up, so this piece is null");
 
-                } else if ((piece.equalsIgnoreCase(blackPieces[0]) || piece.equalsIgnoreCase(blackPieces[1]) || piece.equalsIgnoreCase(blackPieces[2]) || piece.equalsIgnoreCase(blackPieces[3]) || piece.equalsIgnoreCase(blackPieces[4]) || piece.equalsIgnoreCase(blackPieces[5])) && (!piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0]))) {
+                } else if (piece.equalsIgnoreCase(blackPieces[0]) || piece.equalsIgnoreCase(blackPieces[1]) || piece.equalsIgnoreCase(blackPieces[2]) || piece.equalsIgnoreCase(blackPieces[3]) || piece.equalsIgnoreCase(blackPieces[4]) || piece.equalsIgnoreCase(blackPieces[5]) && !piece.equalsIgnoreCase(blankSpaces[1]) && !piece.equalsIgnoreCase(blackPieces[0])) {
 
                     ownsPiece = true;
 
@@ -207,7 +203,7 @@ public class move {
 
                 } else {
 
-                    System.out.println("Move is invalid");
+                    System.out.println("Move is  invalid");
 
                 }
 
@@ -297,14 +293,17 @@ public class move {
 
             if ((y2 == (y1 + 2) && x2 == (x1 + 1)) || (y2 == (y1 + 1) && x2 == (x1 + 2)) || (y2 == (y1 - 1) && x2 == (x1 + 2)) || (y2 == (y1 - 2) && x2 == (x1 + 1)) || (y2 == (y1 - 2) && x2 == (x1 - 1)) || (y2 == (y1 - 1) && x2 == (x1 - 2)) || (y2 == (y1 + 1) && x2 == (x1 - 2)) || (y2 == (y1 + 2) && x2 == (x1 - 1))) {
 
-                if (whosTurn == 1 && ((board[x2][y2].equals(whitePieces[0])) || (board[x2][y2].equals(whitePieces[1])) || (board[x2][y2].equals(whitePieces[2])) || (board[x2][y2].equals(whitePieces[3])) || (board[x2][y2].equals(whitePieces[4])) || (board[x2][y2].equals(whitePieces[5])))) {
+                if (whosTurn == 1 && (!(board[x2][y2].equals(whitePieces[0])) && !(board[x2][y2].equals(whitePieces[1])) && !(board[x2][y2].equals(whitePieces[2])) && !(board[x2][y2].equals(whitePieces[3])) && !(board[x2][y2].equals(whitePieces[4]) && !(board[x2][y2].equals(whitePieces[5]))))) {
+                    return true;
+                } else if (whosTurn == 2 && (!(board[x2][y2].equals(blackPieces[0])) && !(board[x2][y2].equals(blackPieces[1])) && !(board[x2][y2].equals(blackPieces[2])) && !(board[x2][y2].equals(blackPieces[3])) && !(board[x2][y2].equals(blackPieces[4]) && !(board[x2][y2].equals(blackPieces[5]))))) {
                     return true;
                 }
-//                else {
-//                    return false;
-//                }
-                
-                
+
+                else {
+                    System.out.println("bkabfcas");
+                }
+
+
             }
 
         } else if (piece.equalsIgnoreCase(whitePieces[5]) || piece.equalsIgnoreCase(blackPieces[5])) {
@@ -320,18 +319,3 @@ public class move {
     }
 
 }
-
-/*
-ideas
-
-the program already prints coordinates of both where the piece was and where it went, but the game should
-also print if a piece takes another piece.
-
-EX: Moving ♘ from 7,1 to 6,3
-    ♘ takes ♝
-    Check!
-
-shouldn't be too hard, the program just needs to check if there was an enemy piece where you moved, and
-display it after "takes".
-detecting if the king is in check will be tricky, but we can talk about that later.
-*/
