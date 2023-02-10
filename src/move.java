@@ -195,15 +195,21 @@ public class move {
                 if (moveIsValid) {
                     System.out.println("move is valid");
 
+                    if ((tempX % 2 == 0 && tempY % 2 == 0) || (tempX % 2 == 1 && tempY % 2 == 1)) {
+                        Main.setBoard(tempX, tempY, blankSpaces[0]);
+                    } else {
+                        Main.setBoard(tempX, tempY, blankSpaces[1]);
+                    }
+
+
                     Main.setBoard(tempX2, tempY2, piece);
-                    Main.setBoard(tempX, tempY, blankSpaces[1]);
                     System.out.println("to " + tempX2 + "," + tempY2 + " piece " + piece);
                     System.out.println("from " + tempX + "," + tempY);
                     turnIsComplete = true;
 
                 } else {
 
-                    System.out.println("Move is  invalid");
+                    System.out.println("Move is invalid");
 
                 }
 
@@ -293,16 +299,16 @@ public class move {
 
             if ((y2 == (y1 + 2) && x2 == (x1 + 1)) || (y2 == (y1 + 1) && x2 == (x1 + 2)) || (y2 == (y1 - 1) && x2 == (x1 + 2)) || (y2 == (y1 - 2) && x2 == (x1 + 1)) || (y2 == (y1 - 2) && x2 == (x1 - 1)) || (y2 == (y1 - 1) && x2 == (x1 - 2)) || (y2 == (y1 + 1) && x2 == (x1 - 2)) || (y2 == (y1 + 2) && x2 == (x1 - 1))) {
 
-                if (whosTurn == 1 && (!(board[x2][y2].equals(whitePieces[0])) && !(board[x2][y2].equals(whitePieces[1])) && !(board[x2][y2].equals(whitePieces[2])) && !(board[x2][y2].equals(whitePieces[3])) && !(board[x2][y2].equals(whitePieces[4]) && !(board[x2][y2].equals(whitePieces[5]))))) {
+                if (canCapture(x2, y2)) {
+
                     return true;
-                } else if (whosTurn == 2 && (!(board[x2][y2].equals(blackPieces[0])) && !(board[x2][y2].equals(blackPieces[1])) && !(board[x2][y2].equals(blackPieces[2])) && !(board[x2][y2].equals(blackPieces[3])) && !(board[x2][y2].equals(blackPieces[4]) && !(board[x2][y2].equals(blackPieces[5]))))) {
-                    return true;
+
                 }
 
-                else {
-                    System.out.println("bkabfcas");
-                }
+            } else {
 
+                System.out.println("this is an illegal move");
+                return false;
 
             }
 
@@ -315,6 +321,25 @@ public class move {
 
         System.out.println("returned false by default");
         return false;
+
+    }
+
+    public static boolean canCapture (int x2, int y2) {
+
+        if (whosTurn == 1 && (!(board[x2][y2].equals(whitePieces[0])) && !(board[x2][y2].equals(whitePieces[1])) && !(board[x2][y2].equals(whitePieces[2])) && !(board[x2][y2].equals(whitePieces[3])) && !(board[x2][y2].equals(whitePieces[4]) && !(board[x2][y2].equals(whitePieces[5]))))) {
+
+            return true;
+
+        } else if (whosTurn == 2 && (!(board[x2][y2].equals(blackPieces[0])) && !(board[x2][y2].equals(blackPieces[1])) && !(board[x2][y2].equals(blackPieces[2])) && !(board[x2][y2].equals(blackPieces[3])) && !(board[x2][y2].equals(blackPieces[4]) && !(board[x2][y2].equals(blackPieces[5]))))) {
+
+            return true;
+
+        } else {
+
+            System.out.println("you can't capture your own piece");
+            return false;
+
+        }
 
     }
 
