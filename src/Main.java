@@ -55,7 +55,7 @@ public class Main {
         //prints 15 empty lines
         for (int i = 1; i < 30; i++) {
 
-            System.out.println();
+            System.out.println("");
 
         }
 
@@ -64,7 +64,7 @@ public class Main {
 
         for (int i = 1; i < a; i++) {
 
-            System.out.println();
+            System.out.println("");
 
         }
 
@@ -158,7 +158,6 @@ public class Main {
 
         //main game loop
         while (!gameOver) {
-
 
             print.printBoard();
 
