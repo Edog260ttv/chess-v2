@@ -47,8 +47,8 @@ public class move {
 
         // is the coordinate they entered valid?
         if (((from.substring(0, 1).equalsIgnoreCase("a") || from.substring(0, 1).equalsIgnoreCase("b") || from.substring(0, 1).equalsIgnoreCase("c") || from.substring(0, 1).equalsIgnoreCase("d") || from.substring(0, 1).equalsIgnoreCase("e") || from.substring(0, 1).equalsIgnoreCase("f") || from.substring(0, 1).equalsIgnoreCase("g") || from.substring(0, 1).equalsIgnoreCase("h")) && (to.substring(0, 1).equalsIgnoreCase("a") || to.substring(0, 1).equalsIgnoreCase("b") || to.substring(0, 1).equalsIgnoreCase("c") || to.substring(0, 1).equalsIgnoreCase("d") || to.substring(0, 1).equalsIgnoreCase("e") || to.substring(0, 1).equalsIgnoreCase("f") || to.substring(0, 1).equalsIgnoreCase("g") || to.substring(0, 1).equalsIgnoreCase("h"))) && (to.length() < 3 && to.length() > 1 && from.length() < 3 && from.length() > 1) && !(to.substring(1).equalsIgnoreCase("9")) && !(from.substring(1).equalsIgnoreCase("9")) && !from.substring(1).equalsIgnoreCase("0") && !to.substring(1).equalsIgnoreCase("0")) {
-            int tempY = 0;
             int tempX = 0;
+            int tempY = 0;
 
             // converting from to two ints as coordinates
             if (from.substring(0, 1).equalsIgnoreCase("a")) {
@@ -94,8 +94,8 @@ public class move {
             }
 
 
-            int tempY2 = 0;
             int tempX2 = 0;
+            int tempY2 = 0;
             if (to.substring(0, 1).equalsIgnoreCase("a")) {
 
                 tempY2 = 1;
@@ -146,7 +146,7 @@ public class move {
             board = Main.getBoard();
             piece = board[tempX][tempY];
             // coordinate they entered is valid
-            System.out.println("move " + piece + " from " + tempX + "," + tempY + " to " + tempX2 + "," + tempY2);
+            System.out.println("move " + piece + " from " + (tempY + 1) + "," + (tempX+ 1) + " to " + (tempY2 + 1) + "," + (tempX2 + 1));
 
 
             // checking if player owns the piece they are trying to move
@@ -301,6 +301,7 @@ public class move {
 
                 if (canCapture(x2, y2)) {
 
+                    //checks if the knight moves in an L shape
                     return true;
 
                 }
@@ -316,6 +317,87 @@ public class move {
 
 
             System.out.println("this piece is a pawn");
+
+            if (piece.equals(whitePieces[5]) && (y2 == y1 && x2 == (x1 + 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //checks if the white pawn is only moving one space forward
+                    return true;
+
+                }
+
+            } else if (piece.equals(whitePieces[5]) && (y2 == y1 && x2 == (x1 + 2) && x1 == 1)) {
+
+                if (canCapture(x2, y2)) {
+
+                    //checks if the white pawn is in its starting position, letting it move two spaces
+                    return true;
+
+                }
+
+            } else if (piece.equals(whitePieces[5]) && (board[y2][x2].equals(blackPieces[0]) || board[y2][x2].equals(blackPieces[1]) || board[y2][x2].equals(blackPieces[2]) || board[y2][x2].equals(blackPieces[3]) || board[y2][x2].equals(blackPieces[4]) || board[y2][x2].equals(blackPieces[5])) && (y2 == (y1 + 1) && (x2 == x1 + 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //lets a white pawn move diagonally to the right to take an enemy piece
+                    return true;
+
+                }
+
+            } else if (piece.equals(whitePieces[5]) && (board[y2][x2].equals(blackPieces[0]) || board[y2][x2].equals(blackPieces[1]) || board[y2][x2].equals(blackPieces[2]) || board[y2][x2].equals(blackPieces[3]) || board[y2][x2].equals(blackPieces[4]) || board[y2][x2].equals(blackPieces[5])) && (y2 == (y1 - 1) && (x2 == x1 + 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //lets a white pawn move diagonally to the left to take an enemy piece
+                    return true;
+
+                }
+
+            } else if (piece.equals(blackPieces[5]) &&(y2 == y1 && x2 == (x1 - 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //checks if the black pawn is only moving one space forward
+                    return true;
+
+                }
+
+            } else if (piece.equals(blackPieces[5]) && (y2 == y1 && x2 == (x1 - 2) && x1 == 6)) {
+
+                if (canCapture(x2, y2)) {
+
+                    //checks if the black pawn is in its starting position, letting it move two spaces
+                    return true;
+
+                }
+
+            } else if (piece.equals(blackPieces[5]) && (board[y2][x2].equals(whitePieces[0]) || board[y2][x2].equals(whitePieces[1]) || board[y2][x2].equals(whitePieces[2]) || board[y2][x2].equals(whitePieces[3]) || board[y2][x2].equals(whitePieces[4]) || board[y2][x2].equals(whitePieces[5])) && (y2 == (y1 + 1) && (x2 == x1 - 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //lets a black pawn move diagonally to the right to take an enemy piece
+                    return true;
+
+                }
+
+            } else if (piece.equals(blackPieces[5]) && (board[y2][x2].equals(whitePieces[0]) || board[y2][x2].equals(whitePieces[1]) || board[y2][x2].equals(whitePieces[2]) || board[y2][x2].equals(whitePieces[3]) || board[y2][x2].equals(whitePieces[4]) || board[y2][x2].equals(whitePieces[5])) && (y2 == (y1 - 1) && (x2 == x1 - 1))) {
+
+                if (canCapture(x2, y2)) {
+
+                    //lets a black pawn move diagonally to the left to take an enemy piece
+                    return true;
+
+                }
+
+            }
+
+            else {
+
+                System.out.println("this is an illegal move");
+                return false;
+
+            }
 
         }
 

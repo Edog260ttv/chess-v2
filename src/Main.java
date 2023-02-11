@@ -108,6 +108,10 @@ public class Main {
         blackPieces[4] = "♞";
         blackPieces[5] = "♟";
 
+//        System.out.println("   ");
+//        System.out.println("▓▓");
+//        System.out.println("♔ ");
+
         // first questions at beginning
 
         System.out.println("Welcome To Chess!");
