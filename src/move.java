@@ -336,7 +336,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (board[y2][x2].equals(blackPieces[0]) || board[y2][x2].equals(blackPieces[1]) || board[y2][x2].equals(blackPieces[2]) || board[y2][x2].equals(blackPieces[3]) || board[y2][x2].equals(blackPieces[4]) || board[y2][x2].equals(blackPieces[5])) && (y2 == (y1 + 1) && (x2 == x1 + 1))) {
+            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (y2 == (y1 + 1) && (x2 == x1 + 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -345,7 +345,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (board[y2][x2].equals(blackPieces[0]) || board[y2][x2].equals(blackPieces[1]) || board[y2][x2].equals(blackPieces[2]) || board[y2][x2].equals(blackPieces[3]) || board[y2][x2].equals(blackPieces[4]) || board[y2][x2].equals(blackPieces[5])) && (y2 == (y1 - 1) && (x2 == x1 + 1))) {
+            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (y2 == (y1 - 1) && (x2 == x1 + 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -354,7 +354,18 @@ public class move {
 
                 }
 
-            } else if (piece.equals(blackPieces[5]) &&(y2 == y1 && x2 == (x1 - 1))) {
+            } else if (piece.equals(whitePieces[5]) && (x2 == 7)) {
+
+                if (canCapture(x2, y2)) {
+
+                    //player can promote a white pawn if it reaches the other end of the board
+                    return true;
+
+                }
+
+            }
+
+            else if (piece.equals(blackPieces[5]) &&(y2 == y1 && x2 == (x1 - 1))) {
 
                 if (canCapture(x2, y2)) {
 
