@@ -180,6 +180,7 @@ public class move {
                 } else {
 
                     System.out.println("Please pick another Piece, you don't own this one");
+                    ownsPiece = false;
 
                 }
 
@@ -190,7 +191,7 @@ public class move {
             //moving checking if it's a valid move
             if (ownsPiece) {
 
-                moveIsValid =  isValidMove(piece, tempX, tempY, tempX2, tempY2);
+                moveIsValid =  isValidMove(piece, tempY, tempX, tempY2, tempX2);
 
                 if (moveIsValid) {
                     System.out.println("move is valid");
@@ -318,7 +319,7 @@ public class move {
 
             System.out.println("this piece is a pawn");
 
-            if (piece.equals(whitePieces[5]) && (y2 == y1 && x2 == (x1 + 1))) {
+            if (piece.equals(whitePieces[5]) && (x2 == x1 && y2 == (y1 + 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -327,7 +328,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (y2 == y1 && x2 == (x1 + 2) && x1 == 1)) {
+            } else if (piece.equals(whitePieces[5]) && (x2 == x1 && y2 == (y1 + 2) && y1 == 1)) {
 
                 if (canCapture(x2, y2)) {
 
@@ -336,7 +337,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (y2 == (y1 + 1) && (x2 == x1 + 1))) {
+            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (x2 == (x1 + 1) && (y2 == y1 + 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -345,7 +346,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (y2 == (y1 - 1) && (x2 == x1 + 1))) {
+            } else if (piece.equals(whitePieces[5]) && (board[x2][y2].equals(blackPieces[0]) || board[x2][y2].equals(blackPieces[1]) || board[x2][y2].equals(blackPieces[2]) || board[x2][y2].equals(blackPieces[3]) || board[x2][y2].equals(blackPieces[4]) || board[x2][y2].equals(blackPieces[5])) && (x2 == (x1 - 1) && (y2 == y1 + 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -354,18 +355,16 @@ public class move {
 
                 }
 
-            } else if (piece.equals(whitePieces[5]) && (x2 == 7)) {
+            } else if (piece.equals(whitePieces[5]) && (y2 == 7)) {
 
                 if (canCapture(x2, y2)) {
 
                     //player can promote a white pawn if it reaches the other end of the board
-                    return true;
+
 
                 }
 
-            }
-
-            else if (piece.equals(blackPieces[5]) &&(y2 == y1 && x2 == (x1 - 1))) {
+            } else if (piece.equals(blackPieces[5]) && (x2 == x1 && y2 == (y1 - 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -374,7 +373,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(blackPieces[5]) && (y2 == y1 && x2 == (x1 - 2) && x1 == 6)) {
+            } else if (piece.equals(blackPieces[5]) && (x2 == x1 && y2 == (y1 - 2) && y1 == 6)) {
 
                 if (canCapture(x2, y2)) {
 
@@ -383,7 +382,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(blackPieces[5]) && (board[y2][x2].equals(whitePieces[0]) || board[y2][x2].equals(whitePieces[1]) || board[y2][x2].equals(whitePieces[2]) || board[y2][x2].equals(whitePieces[3]) || board[y2][x2].equals(whitePieces[4]) || board[y2][x2].equals(whitePieces[5])) && (y2 == (y1 + 1) && (x2 == x1 - 1))) {
+            } else if (piece.equals(blackPieces[5]) && (board[x2][y2].equals(whitePieces[0]) || board[x2][y2].equals(whitePieces[1]) || board[x2][y2].equals(whitePieces[2]) || board[x2][y2].equals(whitePieces[3]) || board[x2][y2].equals(whitePieces[4]) || board[x2][y2].equals(whitePieces[5])) && (x2 == (x1 + 1) && (y2 == y1 - 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -392,7 +391,7 @@ public class move {
 
                 }
 
-            } else if (piece.equals(blackPieces[5]) && (board[y2][x2].equals(whitePieces[0]) || board[y2][x2].equals(whitePieces[1]) || board[y2][x2].equals(whitePieces[2]) || board[y2][x2].equals(whitePieces[3]) || board[y2][x2].equals(whitePieces[4]) || board[y2][x2].equals(whitePieces[5])) && (y2 == (y1 - 1) && (x2 == x1 - 1))) {
+            } else if (piece.equals(blackPieces[5]) && (board[x2][y2].equals(whitePieces[0]) || board[x2][y2].equals(whitePieces[1]) || board[x2][y2].equals(whitePieces[2]) || board[x2][y2].equals(whitePieces[3]) || board[x2][y2].equals(whitePieces[4]) || board[x2][y2].equals(whitePieces[5])) && (x2 == (x1 - 1) && (y2 == y1 - 1))) {
 
                 if (canCapture(x2, y2)) {
 
@@ -417,9 +416,9 @@ public class move {
 
     }
 
-    public static boolean canCapture (int x2, int y2) {
+    public static boolean canCapture (int y2, int x2) {
 
-        if (whosTurn == 1 && (!(board[x2][y2].equals(whitePieces[0])) && !(board[x2][y2].equals(whitePieces[1])) && !(board[x2][y2].equals(whitePieces[2])) && !(board[x2][y2].equals(whitePieces[3])) && !(board[x2][y2].equals(whitePieces[4]) && !(board[x2][y2].equals(whitePieces[5]))))) {
+        if (whosTurn == 1 && (!(board[x2][y2].equals(whitePieces[0])) && !(board[x2][y2].equals(whitePieces[1])) && !(board[x2][y2].equals(whitePieces[2])) && !(board[x2][y2].equals(whitePieces[3])) && !(board[x2][y2].equals(whitePieces[4])) && !(board[x2][y2].equals(whitePieces[5])))) {
 
             return true;
 
